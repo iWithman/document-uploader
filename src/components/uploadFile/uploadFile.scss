@@ -77,8 +77,19 @@
   
   .loading-file-line {
     display: flex;
+    align-items: center;
     gap: 10px;
-    margin: 15px 0;
+    margin: 30px 0;
+    border-top: 1px solid #00000029;
+    border-bottom: 1px solid #00000029;
+    padding: 20px 15px;
+
+    span {
+      background-color: #00000029;
+      span {
+        background-color: orange;
+      }
+    }
   }
   
   

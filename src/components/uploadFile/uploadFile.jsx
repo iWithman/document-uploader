@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+// libraries
 import {
   Container,
   Grid,
@@ -15,9 +16,8 @@ import {
   Switch,
   Button,
   RadioGroup,
+  LinearProgress
 } from "@mui/material";
-
-// libraries
 import { AccessTime, TextSnippet } from "@mui/icons-material";
 
 // styles
@@ -77,11 +77,41 @@ const UploadFile = () => {
               </Button>
             </Paper>
             <Grid className="loading-file-line">
-              <TextSnippet sx={{ color: "orange" }} />
-              <span style={{ width: "100%" }}>
-                <hr />
-              </span>
-            </Grid>
+              <Grid
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between"
+                }}
+              >
+                <TextSnippet sx={{ color: "orange" }} />
+                </Grid>
+              <Grid
+                sx={{
+                  display: "grid",
+                  alignItems: "center",
+                  flex: "2",
+                  color: "#00000029"
+                }}
+              >
+                <Grid
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between"
+                  }}
+                >
+                  <Typography variant="body2">File Name</Typography>
+                  <Typography variant="body2" sx={{ marginLeft: 'auto' }}>8.2MB</Typography>
+                </Grid>
+                  <Grid
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between"
+                    }}
+                  >
+                    <LinearProgress variant="determinate" value={10} sx={{ width: '100%', marginLeft: '10px' }} />            
+                  </Grid>
+                </Grid>
+              </Grid>
             <Grid className="elapse-data-container">
               <Typography variant="h6">Elapse Data Checking:</Typography>
               <Typography
@@ -104,8 +134,6 @@ const UploadFile = () => {
               </Grid>
             </Grid>
           </Grid>
-
-
           <Grid item lg={5} className="right-side-container">
             <Grid className="radio-buttons-container">
               <Typography variant="h5" sx={{ fontSize: "20px"}}>
