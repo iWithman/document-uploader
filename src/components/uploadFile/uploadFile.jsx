@@ -25,9 +25,11 @@ import "./uploadFile.scss";
 
 const UploadFile = () => {
 
-  const [toggleChecked, setToggleChecked] = useState(false);
-  const [socialDistancing, setSocialDistancing] = useState("yes");
-  const [client, setClient] = useState("single");
+  const [toggleChecked, setToggleChecked] = useState(true);
+  const [socialDistancing, setSocialDistancing] = useState("Yes");
+  const [client, setClient] = useState("Multiple");
+
+  const totalSelects = 4;
 
   const handleToggle = () => {
     setToggleChecked((prev) => !prev);
@@ -82,18 +84,22 @@ const UploadFile = () => {
             </Grid>
             <Grid className="elapse-data-container">
               <Typography variant="h6">Elapse Data Checking:</Typography>
-              <Typography>No Elapsed Dates!</Typography>
+              <Typography
+                sx={{ color: "limegreen"}}
+              >No Elapsed Dates!</Typography>
             </Grid>
             <Grid className="toggler-container">
               <Typography>Tolerance Window:</Typography>
-              <Grid className="toggler">
+              <Grid className="toggler"
+                sx={{ display: "flex", alignItems: "center", gap: "5px" }}
+              >
                 <FormControlLabel
                   control={
                     <Switch checked={toggleChecked} onChange={handleToggle} />
                   }
                   label="Toggle ON"
                 />
-                | <AccessTime sx={{ color: "gray", fontSize: "18px" }} /> {" "}
+                | <AccessTime sx={{ color: "gray", fontSize: "18px" }} />
                 Select Tolerance Level
               </Grid>
             </Grid>
@@ -109,10 +115,10 @@ const UploadFile = () => {
                 <RadioGroup value={socialDistancing} onChange={(e) => setSocialDistancing(e.target.value)}>
                   <Grid container spacing={2}>
                     <Grid item lg={3}>
-                      <FormControlLabel control={<Radio />} label="Yes" defaultChecked />
+                      <FormControlLabel value="Yes" control={<Radio />} label="Yes" defaultChecked />
                     </Grid>
                     <Grid item lg={2}>
-                      <FormControlLabel control={<Radio />} label="No" />
+                      <FormControlLabel value="No" control={<Radio />} label="No" />
                     </Grid>
                   </Grid>
                 </RadioGroup>
@@ -120,7 +126,9 @@ const UploadFile = () => {
             </Grid>
             <Grid className="location-check">
               <Typography variant="h6">Location Checking:</Typography>
-              <Typography>All Available</Typography>
+              <Typography
+                sx={{ color: "limegreen"}}
+              >All Available</Typography>
             </Grid>
             <Grid>
               <Typography variant="h6">Client:</Typography>
@@ -129,14 +137,57 @@ const UploadFile = () => {
               <RadioGroup value={client} onChange={(e) => setClient(e.target.value)}>
                 <Grid container spacing={2}>
                   <Grid item lg={3}>
-                    <FormControlLabel control={<Radio />} label="Single" />
+                    <FormControlLabel value="Single" control={<Radio />} label="Single" />
                   </Grid>
                   <Grid item lg={2}>
-                    <FormControlLabel control={<Radio />} label="Multiple" />
+                    <FormControlLabel value="Multiple" control={<Radio />} label="Multiple" />
                   </Grid>
                 </Grid>
             </RadioGroup>
             </FormGroup>
+            <Grid className="select-container">
+              {Array.from(Array(totalSelects), (e, i) => (
+                <Grid container className="select-container-select" alignItems={"center"} key={i}>
+                  <Grid item lg={4}>
+                    <Typography sx={{ fontSize: "14px", color: "gray"}}>Testing Center {i + 1}</Typography>
+                  </Grid>
+                  <Grid item lg={6}>
+                    <Grid container spacing={2} alignItems={"center"}>
+
+                      <Grid item lg={10} >
+                        <FormControl fullWidth>
+                          <InputLabel>Select Client</InputLabel>
+                          <Select>
+                            <MenuItem value="">Select Import Name:</MenuItem>
+                            <MenuItem value={`client ${i+1}`}>Client {i+1}</MenuItem>
+                            <MenuItem value={`client ${i+2}`}>Client {i+2}</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </Grid>
+                      <Grid item lg={2}>
+                        <AccessTime sx={{ color: "gray" }} />
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid container className="data-import-container" width={"100%"}>
+          <Grid item lg={12} className="data-import">
+            <Typography variant="h5">
+              Data in the import file is correct. Please press Continue to
+              import.
+            </Typography>
+          </Grid>
+          <Grid className="import-buttons-container">
+            <Button variant="contained" className="import-button">
+              Continue Import
+            </Button>
+            <Button variant="contained" className="cancel-button">
+              Cancel
+            </Button>
           </Grid>
         </Grid>
       </Grid>
