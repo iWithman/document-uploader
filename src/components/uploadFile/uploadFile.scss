@@ -1,0 +1,111 @@
+.document-upload-container {
+  padding: 40px;
+}
+#upload-file {
+  .document-header {
+    h5 {
+     text-align: center;
+     font-size: 30px;
+     border-bottom: 1px solid #00000029;
+     width: fit-content;
+     padding-bottom: 10px;
+     margin: 0 auto;
+     margin-bottom: 30px;
+   }
+  }
+  
+  // left side container
+  .left-side-container {
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #00000029;
+    }
+  
+    .upload-content {
+      margin: 10px 0;
+      border-top: 1px solid #00000029;
+      padding-top: 10px;
+      width: fit-content;
+    }
+  
+    .upload-box {
+      height: 175px;
+      border: 1px solid #00000029;
+      border-radius: 5px;
+      padding: 10px;
+      display: grid;
+    }
+  
+    .upload-box-content {
+      display: flex;
+      justify-content: center;
+      border: 1px dotted #00000029;
+      padding: 10px;
+      height: 100px;
+    }
+  
+    .upload-box-content-text {
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      justify-content: end;
+    }
+  
+    .upload-box-button {
+      border: none;
+      color: #fff;
+      padding: 5px 0;
+      border-radius: 5px;
+      width: 200px;
+      margin: 0 auto;
+    }
+  }
+  
+  .loading-file-line {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+  }
+  
+  // right side container 
+  .right-side-container {
+  
+    .radio-buttons-container-content {
+      display: flex;
+    }
+    
+    .radio-buttons-container-title {
+      h5 {
+        margin: 0 0 10px 0;
+      }
+    }
+    
+     .location-check h6,
+     .location-check p {
+      margin: 10px 0;
+    }
+    
+    .select-container-select {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+    
+    .select-container-select {
+      select {
+        border: 1px solid #00000029;
+        border-radius: 5px;
+      }
+    }
+    
+    .location-check {
+      border-top: 1px solid #00000029;
+      margin: 10px 0;
+      border-bottom: 1px solid #00000029;
+    }
+  }
+
+}
+

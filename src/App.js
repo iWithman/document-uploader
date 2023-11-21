@@ -1,9 +1,9 @@
-import './App.css';
+import UploadFile from './components/uploadFile/uploadFile';
 
 function App() {
   return (
     <div className="App">
-      <h1>document uploader</h1>
+      <UploadFile />
     </div>
   );
 }
